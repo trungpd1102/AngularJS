@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css" type="text/css">
+   <script language="javaScript" src="libs/angular.min.js"></script>
+   <title>RootScope</title>
+</head>
+
+<body ng-app="rootScope">
+   <div ng-controller="parentController">
+      <div ng-controller="1stController">
+         <input type="text" ng-model="name" />
+         <button ng-click="sayHello()">Click</button>
+         <div>{{name}}</div>
+      </div>
+      <div ng-controller="2ndmyController">
+         <input type="text" ng-model="name" />
+         <button ng-click="sayHello()">Click</button>
+         <div>{{name}}</div>
+      </div>
+      ParentController Name: {{name}}
+   </div>
+
+   <script>
+      angular.module('rootScope', [])
+         .controller('parentController', ($scope) => {
+            $scope.name = 'Paul';
+            // $scope.sayHello = () => {
+            //    $scope.name = `Hello ${$scope.name}`;
+            // };
+         })
+         .controller('1stController', function ($scope, $rootScope) {
+            //$rootScope.name = 'TrungNgoc';
+
+            $scope.name = 'Duc Trung';
+            // $scope.sayHello = () => {
+            //    $scope.name = `Hello ${$scope.name}`;
+            // };
+         })
+         .controller('2ndmyController', ($scope, $rootScope) => {
+
+            $scope.name = 'Vu Ngoc';
+            // $scope.sayHello = () => {
+            //    $scope.name = `Hello ${$scope.name}`;
+            // };
+         });
+   </script>
+</body>
+
+</html>

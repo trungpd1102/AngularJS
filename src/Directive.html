@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directive">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script language="javaScript" src="libs/angular.min.js"></script>
+   <title>Directive</title>
+</head>
+
+<body>
+   <div ng-controller="myController" ng-init="DemoMesssage = 'Hello World'">
+      {{DemoMesssage}}
+   </div>
+   <div 1st-directive></div>
+   <script>
+      angular.module('directive', [])
+         .controller('myController', ($scope) => {
+
+         })
+         .directive('1stDirective', () => {
+            return {
+               template: "<h1>This is the first directive I've been made</h1>",
+            }
+         });
+   </script>
+</body>
+
+</html>

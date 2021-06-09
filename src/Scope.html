@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script language="javaScript" src="libs/angular.min.js"></script>
+   <title>Scope</title>
+</head>
+
+<body ng-app="demoScope">
+   <div ng-controller="1stController">
+      <input type="text" ng-model="name" />
+      <button ng-click="sayHello()">Click</button>
+      <div>{{name}}</div>
+   </div>
+   <div ng-controller="2ndmyController">
+      <input type="text" ng-model="name" />
+      <button ng-click="sayHello()">Click</button>
+      <div>{{name}}</div>
+   </div>
+   <script>
+      angular.module('demoScope', [])
+         .controller('1stController', function ($scope) {
+            $scope.name = 'Duc Trung';
+
+            $scope.sayHello = () => {
+               $scope.name = `Hello ${$scope.name}`;
+            };
+         })
+         .controller('2ndmyController', ($scope) => {
+            $scope.name = 'Vu Ngoc';
+
+            $scope.sayHello = () => {
+               $scope.name = `Hello ${$scope.name}`;
+            };
+         });
+   </script>
+</body>
+
+</html>
